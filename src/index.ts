@@ -1,1 +1,2 @@
-console.log("Hello World");
+import groqText from "./module/ai_module.js";
+console.log(await groqText("Say hello world!"))
