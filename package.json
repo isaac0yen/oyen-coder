@@ -1,0 +1,19 @@
+{
+  "name": "task-management-api-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^20.12.12"
+  },
+  "dependencies": {
+    "jest": "^29.4.3"
+  }
+}
+
