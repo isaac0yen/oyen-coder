@@ -1,0 +1,17 @@
+{
+  "cache": {
+    "KEY_lOCATION": 1,
+    "GROQ_API_KEY": {
+      "count": 5,
+      "state": true
+    },
+    "GROQ_API_KEY_2": {
+      "count": 6,
+      "state": true
+    },
+    "GROQ_API_KEY_3": {
+      "count": 8,
+      "state": true
+    }
+  }
+}
