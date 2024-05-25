@@ -2,12 +2,11 @@
   Oyen Coder is a project that has the ability to create frontend and backend applications.
   It takes certain properties as an object and goes through series of prompts from the groqText AI module.
 */
+import projectAnalysis from "./controllers/first_stage.js";
+import { projectProperty } from "./types.js"
 
-import groqText from "./module/ai_module.js";
-import prompt from "./module/ai_prompt.js";
-import fs from "fs";
 
-const property = {
+const property: projectProperty = {
   applicationType: "backend",
   language: "javascript",
   framework: "null",
@@ -94,14 +93,18 @@ const property = {
   dataFabricFramework: "aws-data-fabric-framework",
   dataVirtualizationFramework: "aws-data-virtualization-framework",
   dataFederationFramework: "aws-data-federation-framework",
-  description:`This is a backend AI agent that has the ability to create frontend and backend applications.
-  It takes certain properties as an object and goes through series of prompts from an AI API module with various properties.
-  It has the ability to create files and the necessary things to make the application. following SOLID principles.
-*/`,
+  description: `This is a cutting-edge AI-powered application generator that streamlines the development process by leveraging advanced natural language processing and machine learning algorithms. It takes in a set of requirements as input and guides the user through an interactive series of prompts to gather additional details. Based on this information, the agent dynamically generates a robust, scalable, and production-ready full-stack application, adhering to industry best practices such as SOLID principles, test-driven development, and clean architecture.
+
+The agent's capabilities include creating RESTful APIs with secure authentication and authorization mechanisms, integrating with various databases, building responsive and intuitive user interfaces, and implementing advanced features such as real-time communication, data analytics, and machine learning models. With its modular and extensible architecture, the agent can be easily customized and extended to suit specific project needs, enabling rapid application development and accelerating the software engineering process.
+
+By automating the tedious and repetitive tasks involved in application development, this AI-powered generator empowers developers to focus on higher-level tasks, fostering innovation and creativity. It serves as a powerful tool for both experienced developers and those new to the field, providing a seamless and efficient way to bring their ideas to life.`,
 };
 
-console.log(prompt.consultant(property));
-const summary: string = await groqText(prompt.consultant(property));
-fs.writeFileSync("prompt.txt", summary);
+const analysis = await projectAnalysis(property);
 
+if (!analysis) {
+  throw new Error("Project analysis failed");
+}
+
+console.log("Project analysis succeeded");
 //console.log(await groqText("Say hello world!"))
