@@ -2,11 +2,12 @@
   Oyen Coder is a project that has the ability to create frontend and backend applications.
   It takes certain properties as an object and goes through series of prompts from the groqText AI module.
 */
-import projectAnalysis from "./controllers/first_stage.js";
+import projectAnalysis from "./controllers/project_analyis.js";
 import { projectProperty } from "./types.js"
 
 
 const property: projectProperty = {
+  projectName: "Oyen Coder",
   applicationType: "backend",
   language: "javascript",
   framework: "null",

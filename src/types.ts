@@ -1,4 +1,5 @@
 export interface projectProperty {
+  projectName: string;
   applicationType: string;
   language: string;
   framework: string | null;
