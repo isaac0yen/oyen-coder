@@ -1,7 +1,12 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
+
+
 
 const readFile = async (filePath: string) => {
+  if (!filePath) {
+    throw new Error("No file path provided.");
+  }
   try {
     if (fs.existsSync(filePath)) {
       const data = await fs.promises.readFile(filePath);
@@ -14,7 +19,10 @@ const readFile = async (filePath: string) => {
   }
 };
 
-const writeFile = async (filePath, data) => {
+const writeFile = async (filePath: string, data: string) => {
+  if (!filePath) {
+    throw new Error("No file path provided.");
+  }
   try {
     const dirPath = path.dirname(filePath);
     if (!fs.existsSync(dirPath)) {
@@ -31,4 +39,4 @@ const fileOperation = {
   writeFile,
 };
 
-module.exports = fileOperation;
+export default fileOperation;

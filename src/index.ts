@@ -3,27 +3,28 @@
   It takes certain properties as an object and goes through series of prompts from the groqText AI module.
 */
 import projectAnalysis from "./controllers/project_analyis.js";
+import projectStructure from "./controllers/project_structure.js";
 import { projectProperty } from "./types.js"
 
 
 const property: projectProperty = {
   projectName: "Oyen Coder",
   applicationType: "backend",
-  language: "javascript",
+  language: "typescript",
   framework: "null",
-  database: "sqlite",
+  /* database: "sqlite", */
   packageManager: "npm",
   versionControl: "git",
   testingFramework: "jest",
   testingEnvironment: "node",
-  deploymentPlatform: "aws",
+  deploymentPlatform: "dedicated server",
   cicdTool: "github-actions",
   lintingTool: "eslint",
   formattingTool: "prettier",
   bundlingTool: "webpack",
   taskRunner: "npm-scripts",
   buildTool: "babel",
-  containerizationTool: "docker",
+/*   containerizationTool: "docker",
   orchestrationTool: "kubernetes",
   monitoringTool: "prometheus",
   loggingTool: "elastic-stack",
@@ -94,7 +95,7 @@ const property: projectProperty = {
   dataFabricFramework: "aws-data-fabric-framework",
   dataVirtualizationFramework: "aws-data-virtualization-framework",
   dataFederationFramework: "aws-data-federation-framework",
-  description: `This is a cutting-edge AI-powered application generator that streamlines the development process by leveraging advanced natural language processing and machine learning algorithms. It takes in a set of requirements as input and guides the user through an interactive series of prompts to gather additional details. Based on this information, the agent dynamically generates a robust, scalable, and production-ready full-stack application, adhering to industry best practices such as SOLID principles, test-driven development, and clean architecture.
+ */  description: `This is a cutting-edge AI-powered application generator that streamlines the development process by leveraging  It takes in a set of requirements as input and guides the user through an interactive series of prompts to gather additional details. Based on this information, the agent dynamically generates a robust, scalable, and production-ready full-stack application, adhering to industry best practices such as SOLID principles, test-driven development, and clean architecture.
 
 The agent's capabilities include creating RESTful APIs with secure authentication and authorization mechanisms, integrating with various databases, building responsive and intuitive user interfaces, and implementing advanced features such as real-time communication, data analytics, and machine learning models. With its modular and extensible architecture, the agent can be easily customized and extended to suit specific project needs, enabling rapid application development and accelerating the software engineering process.
 
@@ -102,10 +103,8 @@ By automating the tedious and repetitive tasks involved in application developme
 };
 
 const analysis = await projectAnalysis(property);
+const structure = await projectStructure(analysis);
 
-if (!analysis) {
-  throw new Error("Project analysis failed");
-}
 
-console.log("Project analysis succeeded");
+console.log("Process succeeded");
 //console.log(await groqText("Say hello world!"))

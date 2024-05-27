@@ -10,12 +10,11 @@ const projectAnalysis = async (property: projectProperty) => {
     const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
     const summary: string = await groqText(prompt.consultant(property));
-    console.log(prompt.consultant(property));
     fileOperation.writeFile(path.join(__dirname, "../context/project_analysis.txt"), summary);
     return summary;
   } catch (error) {
     console.log(error);
-    return false;
+    throw error;
   }
 };
 
