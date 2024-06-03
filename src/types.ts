@@ -86,5 +86,7 @@ export interface projectProperty {
   dataFabricFramework?: string;
   dataVirtualizationFramework?: string;
   dataFederationFramework?: string;
-  description?: string;
+  description: string;
+  purpose: string;
+  flowIdea: string;
 }
